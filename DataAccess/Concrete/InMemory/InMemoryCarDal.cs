@@ -3,6 +3,7 @@ using Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 
 namespace DataAccess.Concrete
@@ -13,13 +14,13 @@ namespace DataAccess.Concrete
         public InMemoryCarDal()
         {
             _cars = new List<Car>() {
-             new Car{Id=1,ColorId="#aafdv",BrandId="xc",
+             new Car{Id=1,ColorId=1,BrandId=2,
                  DailyPrice=200,Description="volvo",ModelYear=2016},
-              new Car{Id=2,ColorId="#fffA",BrandId="",
+              new Car{Id=2,ColorId=1,BrandId=2,
                  DailyPrice=200,Description="renault",ModelYear=2018},
-               new Car{Id=3,ColorId="#fafaf",BrandId="1",
+               new Car{Id=3,ColorId=1,BrandId=2,
                  DailyPrice=150,Description="fiat",ModelYear=2020},
-                new Car{Id=4,ColorId="#fafafa",BrandId="1",
+                new Car{Id=4,ColorId=1,BrandId=2,
                  DailyPrice=200,Description="ford",ModelYear=2015}
             };
         }
@@ -45,15 +46,35 @@ namespace DataAccess.Concrete
 
         }
 
+        public Car Get(Expression<Func<Car, bool>> filter)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Car> GetAll()
         {
             return _cars;
+        }
+
+        public List<Car> GetAll(Expression<Func<Car, bool>> filter = null)
+        {
+            throw new NotImplementedException();
         }
 
         public Car GetById(int id)
         {
             var car = _cars.SingleOrDefault(c => c.Id == id);
             return car;
+        }
+
+        public Car GetCarsByBrandId(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Car GetCarsByColorId(int id)
+        {
+            throw new NotImplementedException();
         }
 
         public void Update(Car car)
