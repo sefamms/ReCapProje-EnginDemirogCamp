@@ -5,9 +5,8 @@ using System.Text;
 
 namespace DataAccess.Abstract
 {
-    public interface ICarDal:IEntityRepository<Car>
+    public interface IColorDal:IEntityRepository<Color>
     {
-        Car GetCarsByBrandId(int id);
-        Car GetCarsByColorId(int id);
+
     }
 }
